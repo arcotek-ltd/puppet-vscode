@@ -19,7 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   var logger = new OutputChannelLogger();
   connManager = new ConnectionManager(context, logger);
-  var configSettings = new ConnectionConfiguration(context);
+  let config = vscode.workspace.getConfiguration('puppet');
+  var configSettings = new ConnectionConfiguration(config);
 
   connManager.start(configSettings);
 }

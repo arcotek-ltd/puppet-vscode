@@ -13,8 +13,7 @@ export class ConnectionConfiguration implements IConnectionConfiguration {
   public debugFilePath: string;
   public puppetAgentDir: string;
 
-  constructor(context: vscode.ExtensionContext) {
-    let config = vscode.workspace.getConfiguration('puppet');
+  constructor(config:vscode.WorkspaceConfiguration) {
 
     this.host            = config['languageserver']['address'];
     this.port            = config['languageserver']['port'];
