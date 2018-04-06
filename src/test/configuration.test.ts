@@ -6,19 +6,16 @@ import * as assert from 'assert';
 import * as vscode from 'vscode';
 import { ConnectionConfiguration } from './../configuration';
 
-// Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", () => {
+suite("Configuration Tests", () => {
 
-  // Defines a Mocha unit test
-  test("Something 1", () => {
+  test("Should parse host address", () => {
 
     let config = vscode.workspace.getConfiguration('puppet');
-
-    let c = {};
-    c['languageserver']['address'] = '127.0.0.1';
 
     var configSettings = new ConnectionConfiguration(config);
 
     assert.equal('127.0.0.1', configSettings.host);
+    assert.equal('8081', configSettings.port);
   });
+
 });
