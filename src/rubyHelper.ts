@@ -50,7 +50,7 @@ export class RubyHelper {
           programFiles = process.env['ProgramW6432'];
         }
 
-        if (connectionConfiguration.puppetAgentDir === undefined) {
+        if (connectionConfiguration.puppetAgentDir === null) {
           puppetAgentDir = path.join(programFiles, 'Puppet Labs', 'Puppet'); // tslint:disable-line
         } else {
           puppetAgentDir = connectionConfiguration.puppetAgentDir;
